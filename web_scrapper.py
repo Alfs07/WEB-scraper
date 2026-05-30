@@ -1,5 +1,5 @@
 
-#  ANALISIS STATISTIK DESKRIPTIF - ULASAN DUOLINGO
+#  ANALISIS STATISTIK DESKRIPTIF - ULASAN APK
 # import library yang diperlukan
 # pandas untuk manipulasi data, numpy untuk perhitungan statistik, 
 # matplotlib dan seaborn untuk visualisasi, google_play_scraper untuk scraping ulasan, 
@@ -18,7 +18,7 @@ def scrape_ulasan(jumlah):
     print(f" Mengambil {jumlah} ulasan APK dari Google Play...")
 
     hasil, _ = reviews(
-        'com.duolingo',             # App ID
+        'com.APK',             # App ID
         lang='id',                
         country='id',             
         sort=Sort.NEWEST,         # Sorting komen
@@ -213,8 +213,8 @@ def buat_visualisasi(df):
     ax4.grid(axis='y', alpha=0.3)
 
     plt.tight_layout()
-    plt.savefig('Duolingo_visualisasi.png', dpi=150, bbox_inches='tight')
-    print("Visualisasi disimpan sebagai 'Duolingo_visualisasi.png'\n")
+    plt.savefig('APK_visualisasi.png', dpi=150, bbox_inches='tight')
+    print("Visualisasi disimpan sebagai 'APK_visualisasi.png'\n")
     plt.show()
 
 
@@ -225,8 +225,8 @@ def buat_visualisasi(df):
 def ekspor_data(df, stats):
 
     # Simpan data mentah
-    df.to_csv('Duoling_ulasan.csv', index=False, encoding='utf-8-sig')
-    print("Data ulasan disimpan: Duoling_ulasan.csv")
+    df.to_csv('APK_ulasan.csv', index=False, encoding='utf-8-sig')
+    print("Data ulasan disimpan: APK_ulasan.csv")
 
     # Simpan ringkasan statistik
     ringkasan = pd.DataFrame({
@@ -242,8 +242,8 @@ def ekspor_data(df, stats):
             stats['q1'], stats['q3'], stats['iqr']
         ]
     })
-    ringkasan.to_excel('Duolingo_statistik.xlsx', index=False)
-    print("Statistik disimpan  : Duolingo_statistik.xlsx\n")
+    ringkasan.to_excel('APK_statistik.xlsx', index=False)
+    print("Statistik disimpan  : APK_statistik.xlsx\n")
 
 
 # MAIN PROGRAM
